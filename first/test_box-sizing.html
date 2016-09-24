@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test box-sizing</title>
+    <style>
+    .simple {
+        width: 500px;
+        margin: 20px auto;
+        border: solid red 100px;
+        /*-webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;*/
+        box-sizing: border-box;
+    }
+    
+    .fancy {
+        width: 500px;
+        margin: 20px auto;
+        padding: 50px;
+        border: solid blue 40px;
+        /*-webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;*/
+        box-sizing: border-box;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="simple">我們現在一樣大小了！
+    </div>
+    <div class="fancy">喔耶！</div>
+</body>
+
+</html>
