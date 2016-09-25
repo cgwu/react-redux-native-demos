@@ -1,10 +1,15 @@
 import constants from './constants.js';
+import { combineReducers } from 'redux';
+import update from 'react-addons-update';
 
 const initialState = {
-  balance : 0
+  initialBalance : 0,
+  initialUI : {
+    showInfo : true
+  }
 }
-
-const bankReducer = (state = initialState, action) => {
+/*
+const balanceReducer = (state = initialState, action) => {
   // console.log(action);  // Temporarily logging all actions
   if(action.amount==='') return state;
   switch (action.type) {
@@ -18,4 +23,28 @@ const bankReducer = (state = initialState, action) => {
       return state;
   }
 }
+*/
+
+const balanceReducer = (state = initialState.initialBalance, action) => {
+   console.log('balanceReducer->',action);  // Temporarily logging all actions
+  if(action.amount==='') return state;
+  switch (action.type) {
+    case constants.DEPOSIT_INTO_ACCOUNT:
+      return state + parseFloat(action.amount);
+    case constants.WITHDRAW_FROM_ACCOUNT:
+        return state - parseFloat(action.amount);
+    default:
+      return state;
+  }
+}
+const uiReducer = (state = initialState.initialUI, action) => {
+  console.log('uiReducer->', action)
+  switch (action.type) {
+    case constants.TOGGLE_INFO:
+      return update(state, { showInfo: { $apply: currentState => !currentState } });
+    default:
+      return state;
+  }
+}
+const bankReducer = combineReducers({balance: balanceReducer, ui: uiReducer});
 export default bankReducer;

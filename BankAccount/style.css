@@ -23,3 +23,9 @@ font-size:25px;
 .atm button {
 margin: 20px 10px; padding: 20px 40px;
 }
+.exchange--close{
+  display:none;
+}
+.rate {
+  display: block;
+}
