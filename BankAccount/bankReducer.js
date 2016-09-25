@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const bankReducer = (state = initialState, action) => {
-  console.log(action);  // Temporarily logging all actions
+  // console.log(action);  // Temporarily logging all actions
   if(action.amount==='') return state;
   switch (action.type) {
     // case constants.CREATE_ACCOUNT:
