@@ -4,6 +4,7 @@ import {connect, Provider} from 'react-redux';
 import bankStore from './bankStore';
 import constants from './constants';
 import bankActionCreators from './bankActionCreators';
+import ExchangeRate from './components/ExchangeRate';
 
 class BankApp extends Component {
   handleDeposit() {
@@ -26,8 +27,10 @@ class BankApp extends Component {
           <button onClick={this.handleWithdraw.bind(this)}>Withdraw</button>
           <button onClick={this.handleDeposit.bind(this)}>Deposit</button>
         </div>
+        <ExchangeRate />
+        {/*
         <div className="exchange" onClick={this.props.onToggle}>
-          <strong>Exchange Rates:</strong>
+          <h1>Exchange Rates:</h1>
           <div className={this.props.showExchange? 'exchange--visible': 'exchange--close'}>
             <strong> $1 USD = </strong>
             <span className="rate">0.9990 EUR</span>
@@ -35,6 +38,7 @@ class BankApp extends Component {
             <span className="rate">710.15 JPY</span>
           </div>
         </div>
+        */}
       </div>
     );
   }
